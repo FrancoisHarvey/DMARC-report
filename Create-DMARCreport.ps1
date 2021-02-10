@@ -913,27 +913,6 @@ function Write-PowerBI
 
     )
 
-    $payload =  @{ Realprocessdate= "08/30/2021"
-      processdate = "08/2021"
-      orgname= "orgname"
-      dmarcdomain= "dmarcdomain"
-      sourceip= "sourceip"
-sourcedomain= "sourcedomain"
-sourceipcount= "sourceipcount"
-dmarcdisposition= "dmarcdisposition"
-dmarcspf= "dmarcspf"
-dmarcdkim= "dmarcdkim"
-headerfrom= "headerfrom"
-dkimdomain= "dkimdomain"
-dkimresult= "dkimresult"
-spfdomain= "spfdomain"
-spfscope= "spfscope"
-spfresult= "spfresult "
-latitude= "25.26"
-longitude= "35.36"
-country_name= "country_name"
-region_name= "region_name"
-city= "city"}
  $body  = @{ rows = @( $payload ) }
 
      Invoke-RestMethod -Method Post -Uri "$endpoint" -Body (ConvertTo-Json  -InputObject @($body)  -Depth 5)
