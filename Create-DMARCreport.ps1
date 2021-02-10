@@ -1,6 +1,6 @@
-﻿<#
+<#
 .SYNOPSIS
-    http=//tech-savvy.nl DMARC reporting script.
+    http://tech-savvy.nl DMARC reporting script.
     This script will function as a end to end report tool to pull DMARC reports from a maibox and
     Create nice HTML reports with GEO data that can be directly publisched in a IIS server.
 .DESCRIPTION
@@ -12,7 +12,7 @@
     supports incremental data upload to the PowerBI API.
     The tool is compatible with multiple file formats used by DMARC report senders.
 
-    The following table will outline the steps in more detail=
+    The following table will outline the steps in more detail:
         1. Connect to the reporting mailbox
         2. Downloads the report attachments
         3. Move the processed item to different folder
@@ -49,7 +49,7 @@
     run under.
 
 .EXAMPLE
-    .\Create-DMARCreport.ps1 -dmarcmailbox "scriptkiddie@tech-savvy.nl" -dmarcmailboxusername "13th\script" -passwordfile "c=\mailboxpassword.bin" -DMARCfailedonly
+    .\Create-DMARCreport.ps1 -dmarcmailbox "scriptkiddie@tech-savvy.nl" -dmarcmailboxusername "13th\script" -passwordfile "c:\mailboxpassword.bin" -DMARCfailedonly
 
     This sample will start the reporting generation process using minimal switches.
     It will use all the default folders and assumes 7zip is present in it. the reports in the mailbox are in
@@ -68,21 +68,21 @@
             Only emails that failed DMARC checks will be included in the reports
 
 .EXAMPLE
-    .\Create-DMARCreport.ps1 -ziplocation "C=\dmarcsite" -customsourcefolder "dmarc" -reportstoragedir "C=\dmarcsite"  -dmarcmailbox "scriptkiddie@tech-savvy.nl" -dmarcmailboxpassword "1234" -deleteprocesseditem -TopXresults 25 -iptabledaysold 10
+    .\Create-DMARCreport.ps1 -ziplocation "C:\dmarcsite" -customsourcefolder "dmarc" -reportstoragedir "C:\dmarcsite"  -dmarcmailbox "scriptkiddie@tech-savvy.nl" -dmarcmailboxpassword "1234" -deleteprocesseditem -TopXresults 25 -iptabledaysold 10
 
 
     This sample will start the reporting generation process using the following switches.
 
-        -ziplocation "C=\dmarcsite"
-            The 7zip executable is located in a custom folder called "C=\dmarcsite"
-            Default value is "c=\dmarcworkfolder"
+        -ziplocation "C:\dmarcsite"
+            The 7zip executable is located in a custom folder called "C:\dmarcsite"
+            Default value is "c:\dmarcworkfolder"
 
         -customsourcefolder "dmarc"
             The DMARC report are stored in the mailox in a separate folder under the inbox called "dmarc"
 
-        -reportstoragedir "C=\dmarcsite"
-            The script will export the reports downloaded and generated in subfolders of the folder "C=\dmarcsite"
-            Default value is "c=\dmarcworkfolder"
+        -reportstoragedir "C:\dmarcsite"
+            The script will export the reports downloaded and generated in subfolders of the folder "C:\dmarcsite"
+            Default value is "c:\dmarcworkfolder"
 
         -dmarcmailbox "scriptkiddie@tech-savvy.nl"
             The DMARC mailbox to pull the reports from ( This will also be used as the username )
@@ -102,21 +102,21 @@
             (The default value is 30)
 
 .EXAMPLE
-    .\Create-DMARCreport.ps1 -ziplocation "C=\dmarcsite" -customsourcefolder "dmarc" -reportstoragedir "C=\dmarcsite"  -dmarcmailbox "scriptkiddie@tech-savvy.nl" -dmarcmailboxpassword "1234" -deleteprocesseditem -TopXresults 25 -iptabledaysold 10 -geolookupenabled -PowerBIuploadenabled
+    .\Create-DMARCreport.ps1 -ziplocation "C:\dmarcsite" -customsourcefolder "dmarc" -reportstoragedir "C:\dmarcsite"  -dmarcmailbox "scriptkiddie@tech-savvy.nl" -dmarcmailboxpassword "1234" -deleteprocesseditem -TopXresults 25 -iptabledaysold 10 -geolookupenabled -PowerBIuploadenabled
 
 
     This sample will start the reporting generation process using the following switches.
 
-        -ziplocation "C=\dmarcsite"
-            The 7zip executable is located in a custom folder called "C=\dmarcsite"
-            Default value is "c=\dmarcworkfolder"
+        -ziplocation "C:\dmarcsite"
+            The 7zip executable is located in a custom folder called "C:\dmarcsite"
+            Default value is "c:\dmarcworkfolder"
 
         -customsourcefolder "dmarc"
             The DMARC report are stored in the mailox in a separate folder under the inbox called "dmarc"
 
-        -reportstoragedir "C=\dmarcsite"
-            The script will export the reports downloaded and generated in subfolders of the folder "C=\dmarcsite"
-            Default value is "c=\dmarcworkfolder"
+        -reportstoragedir "C:\dmarcsite"
+            The script will export the reports downloaded and generated in subfolders of the folder "C:\dmarcsite"
+            Default value is "c:\dmarcworkfolder"
 
         -dmarcmailbox "scriptkiddie@tech-savvy.nl"
             The DMARC mailbox to pull the reports from ( This will also be used as the username )
@@ -149,19 +149,19 @@
     Direct HTML files no values are returned to the shell
 .NOTES
     -----------------------------------------------------------------------------------------------------------------------------------
-    Script name   = Create-DmarcReport.ps1
-    Authors       = Martijn (Scriptkiddie) van Geffen
-    Version       = 2.0
-    dependancies  = EWS Managed API 2.0 or newer ( https=//www.nuget.org/packages/Microsoft.Exchange.WebServices/ )
-                    A version of open 7zip ( Included GNU LGPL license or via http=//www.7-zip.org/ )
+    Script name   : Create-DmarcReport.ps1
+    Authors       : Martijn (Scriptkiddie) van Geffen
+    Version       : 2.0
+    dependancies  : EWS Managed API 2.0 or newer ( https://www.nuget.org/packages/Microsoft.Exchange.WebServices/ )
+                    A version of open 7zip ( Included GNU LGPL license or via http://www.7-zip.org/ )
                     If PowerBI is used a PowerBI account with a Hybrid streaming API enabled as documented in the attached PowerBI document
-                    If Geolookup is enabled access to http=//freegeoip.net
+                    If Geolookup is enabled access to http://freegeoip.net
                     If PowerBI is enabled you need internet access to the PowerBI API
 
     -----------------------------------------------------------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------------------------------------
-    Version Changes=
-    Date= (dd-MM-YYYY)    Version=     Changed By=           Info=
+    Version Changes:
+    Date: (dd-MM-YYYY)    Version:     Changed By:           Info:
     12-12-2017            V1.0         Martijn van Geffen    Fixed issue with locating 7 zip executable
                                                              Changed switch to delete attachments into delete item
                                                              Fixed issue where item dit not get deleted from mailbox
@@ -169,7 +169,7 @@
                                                              Added some more verbose comment
                                                              Updated some HTML code for better alignment
                                                              Released to technet gallery
-    13-02-2018            V1.3         Martijn van Geffen    Fixed issues=
+    13-02-2018            V1.3         Martijn van Geffen    Fixed issues:
                                                                 Fixed a issue when a shared mailbox was used the processed folder
                                                                 could not be created
                                                                 Fixed multiple issue where a shared mailbox was used but the script
@@ -178,25 +178,25 @@
                                                                 This would result in System.objects[] in the report tables
                                                                 Fixed a issue when a reverse hostname resolve would result in a wrong
                                                                 object type export
-                                                             New Features=
+                                                             New Features:
                                                                  Added support for NON Rua mail to be moved to a NoDMARCrua folder. This
                                                                  enhances performance if RUF is also targeted at the same mailbox or other mail
                                                                  got into the dmarc folder.
                                                                  Added in and export functionality for the IP reverse resolve table with a date
                                                                  of expiration on the file. ( default 30 days )
-                                                             HTML changes=
+                                                             HTML changes:
                                                                 Removed the double border of tables
                                                                 Added zebra coding in tables
                                                                 Change colours to make it nicer to watch the tables
                                                                 Added padding for information tables
-    22-02-2018            V1.4         Martijn van Geffen    Fixed issues=
-                                                                Parameter binding set for -iptabledaysold changed= Added to password file set"
+    22-02-2018            V1.4         Martijn van Geffen    Fixed issues:
+                                                                Parameter binding set for -iptabledaysold changed: Added to password file set"
                                                                 Domain name in month reports was sometimes truncated to only the first character.
-    12-03-2018            V2.0        Martijn van Geffen    Fixed issues=
+    12-03-2018            V2.0        Martijn van Geffen    Fixed issues:
                                                                 IP table sometimes truncated the hostname to only 1 character.
                                                                 Export of IP table did not export incremental causing errors of duplicate keys in
                                                                 hash table.
-                                                            New Features=
+                                                            New Features:
                                                                 Added possibility to add GEO IP lookups using "-geolookupenabled" switch. If the
                                                                 switch is used the script will add a additional table with the sources per country.
                                                                 Additionaly the country, city, lattitude and longitude will also be send to
@@ -207,15 +207,16 @@
                                                                 possible to create rich reports in PowerBI.
                                                                 Added possibility to add report on failed items only using the "-DMARCfailedonly"
                                                                 switch. Only items failing  both alignment checks will be in the report.
-                                                            HTML changes=
+                                                            HTML changes:
                                                                 Added Reports total of DMARC passed VS DMARC failed.
                                                                 Added tables for DMARC alignment of SPF.
                                                                 Added tables for DMARC alignment of DKIM.
-
-### CUSTOM MODIFICATION FOR PERSONAL USE
-
-    08-02-2021         V3.0          Francois Harvey        Replace GeoIP Online Services with GeoLite2 MaxMind DB
     -----------------------------------------------------------------------------------------------------------------------------------
+
+    ### CUSTOM MODIFICATION FOR PERSONAL USE
+
+        08-02-2021         V3.0          Francois Harvey        Replace GeoIP Online Services with GeoLite2 MaxMind DB
+        -----------------------------------------------------------------------------------------------------------------------------------
 
 .COMPONENT
     This is the main script
@@ -228,15 +229,12 @@
 ##########################
 #     Parameters         #
 ##########################
-# Use local MaxMind (Put GeoLite2-City.mmdb in the curent path)
-Import-Module -Name '.\libMaxMindGeoIp2V1.psm1'
-
 
 #region Parameters
 
 [CmdletBinding(DefaultParameterSetName='Defaultscriptrun',
     SupportsShouldProcess=$true,
-    HelpUri = 'http=//www.tech-savvy.nl'
+    HelpUri = 'http://www.tech-savvy.nl'
 )]
 [OutputType()]
 
@@ -271,7 +269,7 @@ Param
     [Parameter(ParameterSetName='Passwordfile',
         Mandatory=$false)]
     [ValidateNotNullOrEmpty()]
-    [string]$ziplocation = "c=\dmarcworkfolder",
+    [string]$ziplocation = "c:\dmarcworkfolder",
 
     # Param5 reports are not in the postvakin but in a other folder
     [Parameter(ParameterSetName='Defaultscriptrun',
@@ -287,7 +285,7 @@ Param
     [Parameter(ParameterSetName='Passwordfile',
         Mandatory=$false)]
     [ValidateNotNullOrEmpty()]
-    [string]$reportstoragedir = "c=\dmarcworkfolder",
+    [string]$reportstoragedir = "c:\dmarcworkfolder",
 
     # Param7 Delete processed attachments from the work folder
     [Parameter(ParameterSetName='Defaultscriptrun',
@@ -354,6 +352,7 @@ Param
 )
 
 
+
 #endregion Parameters
 
 #############################
@@ -362,7 +361,7 @@ Param
 
 #region staticconfiguration
 
-$version= "2.0"
+$version= "2.1"
 
 #this is the graph character
 #9608= Blok , 164 = star
@@ -377,7 +376,7 @@ $deletetoaction = "MoveToDeletedItems"
 
 #powerBI endpoint
 #sample endpoint below
-#$endpoint = "https=//api.powerbi.com/beta/c7ba2aa0-618b-4041-854f-44643d718003/datasets/8f69ca58-9a7d-4817-b273-64875be5b7c9/rows?key=RzT%2BBgaU0sNF%2BWH8XhdfgdKTSlJEkoBspQGghdfghdNbG8NWBtlQy6HqjczWvPvmsXyyJqaS5b6xhKphgg64nAv%2F5sIgENdXI%2Fg%3D%3D"
+#$endpoint = "https://api.powerbi.com/beta/c7ba2aa0-618b-4041-854f-44643d718003/datasets/8f69ca58-9a7d-4817-b273-64875be5b7c9/rows?key=RzT%2BBgaU0sNF%2BWH8XhdfgdKTSlJEkoBspQGghdfghdNbG8NWBtlQy6HqjczWvPvmsXyyJqaS5b6xhKphgg64nAv%2F5sIgENdXI%2Fg%3D%3D"
 $endpoint = ""
 
 #endregion staticconfiguration
@@ -387,6 +386,11 @@ $endpoint = ""
 ##########################
 
 #region functions
+
+## Use Local GEOIP
+Import-Module -Name '.\libMaxMindGeoIp2V1.psm1'
+
+
 
 Function Generate-TableWithSubTable
 {
@@ -432,14 +436,14 @@ Function Generate-TableWithSubTable
         [System.Array]$tempbody
     .NOTES
         -----------------------------------------------------------------------------------------------------------------------------------
-        Function name = Generate-TableWithSubTable
-        Authors       = Martijn (Scriptkiddie) van Geffen
-        Version       = 1.0
-        dependancies  = None
+        Function name : Generate-TableWithSubTable
+        Authors       : Martijn (Scriptkiddie) van Geffen
+        Version       : 1.0
+        dependancies  : None
         -----------------------------------------------------------------------------------------------------------------------------------
         -----------------------------------------------------------------------------------------------------------------------------------
-        Version Changes=
-        Date= (dd-MM-YYYY)    Version=     Changed By=           Info=
+        Version Changes:
+        Date: (dd-MM-YYYY)    Version:     Changed By:           Info:
         05-12-2017            V1.0         Martijn van Geffen    Initial Function
                                                                  Added support for variable Top X results in the sub tables
         -----------------------------------------------------------------------------------------------------------------------------------
@@ -484,12 +488,12 @@ Function Generate-TableWithSubTable
     $tempbody = @()
 
     #Generate HTML report Headers
-    If ([string]==IsNullOrWhiteSpace($name))
+    If ([string]::IsNullOrWhiteSpace($name))
     {
-        $tempbody += "<H2>Main report= Blank field value</H2>"
+        $tempbody += "<H2>Main report: Blank field value</H2>"
     }else
     {
-        $tempbody += "<H2>Main report= $name</H2>"
+        $tempbody += "<H2>Main report: $name</H2>"
     }
 
 
@@ -594,14 +598,14 @@ Function Generate-TableWithSubTablecountry
         [System.Array]$tempbody
     .NOTES
         -----------------------------------------------------------------------------------------------------------------------------------
-        Function name = Generate-TableWithSubTable
-        Authors       = Martijn (Scriptkiddie) van Geffen
-        Version       = 1.0
-        dependancies  = None
+        Function name : Generate-TableWithSubTable
+        Authors       : Martijn (Scriptkiddie) van Geffen
+        Version       : 1.0
+        dependancies  : None
         -----------------------------------------------------------------------------------------------------------------------------------
         -----------------------------------------------------------------------------------------------------------------------------------
-        Version Changes=
-        Date= (dd-MM-YYYY)    Version=     Changed By=           Info=
+        Version Changes:
+        Date: (dd-MM-YYYY)    Version:     Changed By:           Info:
         05-12-2017            V1.0         Martijn van Geffen    Initial Function
                                                                  Added support for variable Top X results in the sub tables
         -----------------------------------------------------------------------------------------------------------------------------------
@@ -646,12 +650,12 @@ Function Generate-TableWithSubTablecountry
     $tempbody = @()
 
     #Generate HTML report Headers
-    If ([string]==IsNullOrWhiteSpace($name))
+    If ([string]::IsNullOrWhiteSpace($name))
     {
-        $tempbody += "<H2>Main report= Blank field value</H2>"
+        $tempbody += "<H2>Main report: Blank field value</H2>"
     }else
     {
-        $tempbody += "<H2>Main report= $name</H2>"
+        $tempbody += "<H2>Main report: $name</H2>"
     }
 
 
@@ -742,14 +746,14 @@ Function Generate-Table
         [System.Array]$tempbody
     .NOTES
         -----------------------------------------------------------------------------------------------------------------------------------
-        Function name = Generate-Table
-        Authors       = Martijn (Scriptkiddie) van Geffen
-        Version       = 1.0
-        dependancies  = None
+        Function name : Generate-Table
+        Authors       : Martijn (Scriptkiddie) van Geffen
+        Version       : 1.0
+        dependancies  : None
         -----------------------------------------------------------------------------------------------------------------------------------
         -----------------------------------------------------------------------------------------------------------------------------------
-        Version Changes=
-        Date= (dd-MM-YYYY)    Version=     Changed By=           Info=
+        Version Changes:
+        Date: (dd-MM-YYYY)    Version:     Changed By:           Info:
         05-12-2017            V1.0         Martijn van Geffen    Initial Function
 
         -----------------------------------------------------------------------------------------------------------------------------------
@@ -793,12 +797,12 @@ Function Generate-Table
     $tempbody = @()
 
     #Generate HTML report Headers
-    If ([string]==IsNullOrWhiteSpace($name))
+    If ([string]::IsNullOrWhiteSpace($name))
     {
         $tempbody += "<H2>Additional Report Blank field value</H2>"
     }else
     {
-        $tempbody += "<H2>Additional Report= $name</H2>"
+        $tempbody += "<H2>Additional Report: $name</H2>"
     }
 
     #Convert HTML code to table with Precent bar attached
@@ -876,14 +880,14 @@ function Write-PowerBI
         none
     .NOTES
         -----------------------------------------------------------------------------------------------------------------------------------
-        Function name = Write-PowerBI
-        Authors       = Martijn (Scriptkiddie) van Geffen
-        Version       = 1.0
-        dependancies  = Internet access to PowerBI API
+        Function name : Write-PowerBI
+        Authors       : Martijn (Scriptkiddie) van Geffen
+        Version       : 1.0
+        dependancies  : Internet access to PowerBI API
         -----------------------------------------------------------------------------------------------------------------------------------
         -----------------------------------------------------------------------------------------------------------------------------------
-        Version Changes=
-        Date= (dd-MM-YYYY)    Version=     Changed By=           Info=
+        Version Changes:
+        Date: (dd-MM-YYYY)    Version:     Changed By:           Info:
         08-03-2018            V1.0         Martijn van Geffen    Initial Function
 
         -----------------------------------------------------------------------------------------------------------------------------------
@@ -912,10 +916,12 @@ function Write-PowerBI
         [string]$endpoint
 
     )
+    $body  = @{ rows = @( $payload ) }
 
- $body  = @{ rows = @( $payload ) }
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls -bor [Net.SecurityProtocolType]::Tls11 -bor [Net.SecurityProtocolType]::Tls12
 
-     Invoke-RestMethod -Method Post -Uri "$endpoint" -Body (ConvertTo-Json  -InputObject @($body)  -Depth 5)
+
+    Invoke-RestMethod -Method Post -Uri "$endpoint" -Body (ConvertTo-Json  -InputObject @($body)  -Depth 5)
 }
 
 #endregion functions
@@ -930,85 +936,85 @@ $stylesheet = @"
 
 <style>
 
-body { background-color=#f8f9f9;
+body { background-color:#f8f9f9;
 
-       font-family=Tahoma;
+       font-family:Tahoma;
 
-       font-size=12pt; }
+       font-size:12pt; }
 
-td, th { border=1px solid #000033;
+td, th { border:1px solid #000033;
 
-         border-collapse=collapse; }
+         border-collapse:collapse; }
 
-th { color=white;
+th { color:white;
 
-     background-color=#000033; }
+     background-color:#000033; }
 
-table.style1, tr, td, th { padding= 10px; margin=0px }
+table.style1, tr, td, th { padding: 10px; margin:0px }
 
-table.style1 { margin-left=10px; border-collapse= collapse; }
+table.style1 { margin-left:10px; border-collapse: collapse; }
 
-table.style1 tr=nth-child(even) {background-color= #e6f2ff;}
+table.style1 tr:nth-child(even) {background-color: #e6f2ff;}
 
-table.style1 tr=hover { background-color=#fff7e6; }
+table.style1 tr:hover { background-color:#fff7e6; }
 
-table.style2, tr, td, th { padding= 10px; margin-left=0px; }
+table.style2, tr, td, th { padding: 10px; margin-left:0px; }
 
-table.style2 { margin-left=70px; border-collapse= collapse; }
+table.style2 { margin-left:70px; border-collapse: collapse; }
 
-table.style2 tr=nth-child(even) {background-color= #e6f2ff;}
+table.style2 tr:nth-child(even) {background-color: #e6f2ff;}
 
-table.style2 tr=hover { background-color=#fff7e6; }
+table.style2 tr:hover { background-color:#fff7e6; }
 
-sourceipiframe { padding= 22px; }
+sourceipiframe { padding: 22px; }
 
-h2 { margin-left=10px; }
+h2 { margin-left:10px; }
 
-h3 { margin-left=70px; }
+h3 { margin-left:70px; }
 
 .tabs {
-  position= relative;
-  min-height= 800px;
-  clear= both;
-  margin= 25px 0;
+  position: relative;
+  min-height: 800px;
+  clear: both;
+  margin: 25px 0;
 }
 
 .tab {
-  float= left;
+  float: left;
 }
 
 .tab label {
-  background= #eee;
-  padding= 10px;
-  border= 1px solid #ccc;
-  margin-left= -1px;
-  position= relative;
-  left= 1px;
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-left: -1px;
+  position: relative;
+  left: 1px;
 }
 
 .tab [type=radio] {
-  display= none;
+  display: none;
 }
 
 .content {
-  position= absolute;
-  top= 28px;
-  left= 0;
-  background-color=#f8f9f9
-  right= 0;
-  bottom= 0;
-  padding= 20px;
-  border= 1px solid #ccc;
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background-color:#f8f9f9
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  border: 1px solid #ccc;
 }
 
-[type=radio]=checked ~ label {
-  background-color=#f8f9f9
-  border-bottom= 1px solid white;
-  z-index= 2;
+[type=radio]:checked ~ label {
+  background-color:#f8f9f9
+  border-bottom: 1px solid white;
+  z-index: 2;
 }
 
-[type=radio]=checked ~ label ~ .content {
-  z-index= 1;
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
 }
 
 </style>
@@ -1042,8 +1048,8 @@ if ($generatepasswordfile.IsPresent)
 
     Write-Output -InputObject "Script called with -generatepassword switch.`n"
 
-    [void] [System.Reflection.Assembly]==LoadWithPartialName("System.Drawing")
-    [void] [System.Reflection.Assembly]==LoadWithPartialName("System.Windows.Forms")
+    [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
+    [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
     $objForm = New-Object System.Windows.Forms.Form
     $objForm.Text = "DMARC Secure Password file generator"
@@ -1064,7 +1070,7 @@ if ($generatepasswordfile.IsPresent)
     $objLabel = New-Object System.Windows.Forms.Label
     $objLabel.Location = New-Object System.Drawing.Size(10,20)
     $objLabel.Size = New-Object System.Drawing.Size(360,60)
-    $objLabel.Text = "Note= the password file is saved using powershell secure credential.`n`nThe the password file is only valid under the user that created it. If you run the script as a scheduled task you should create the password file under the user account that runs the scheduled task."
+    $objLabel.Text = "Note: the password file is saved using powershell secure credential.`n`nThe the password file is only valid under the user that created it. If you run the script as a scheduled task you should create the password file under the user account that runs the scheduled task."
     $objForm.Controls.Add($objLabel)
 
     $objTextBox = New-Object System.Windows.Forms.TextBox
@@ -1086,7 +1092,7 @@ if ($generatepasswordfile.IsPresent)
        $filelocation = Join-Path -Path $psscriptroot -ChildPath "mailboxpassword.bin"
     }else
     {
-        $filelocation = "c=\dmarcworkfolder\mailboxpassword.bin"
+        $filelocation = "c:\dmarcworkfolder\mailboxpassword.bin"
     }
     $objTextBox2.Text = $filelocation
     $objForm.Controls.Add($objTextBox2)
@@ -1096,9 +1102,9 @@ if ($generatepasswordfile.IsPresent)
     $objForm.Add_Shown({$objForm.Activate()})
     [void] $objForm.ShowDialog()
 
-    Write-debug -Message "password= $password , Filelocation= $pwfilelocation"
+    Write-debug -Message "password: $password , Filelocation: $pwfilelocation"
 
-    if (([string]==IsNullOrEmpty($objTextBox.Text)) -or ([string]==IsNullOrEmpty($objTextBox2.Text)))
+    if (([string]::IsNullOrEmpty($objTextBox.Text)) -or ([string]::IsNullOrEmpty($objTextBox2.Text)))
     {
         Write-warning -Message "Either password or file location was empty. Please use valid value"
     }else
@@ -1113,20 +1119,20 @@ if ($generatepasswordfile.IsPresent)
 
 #region test prerequisits
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 1/10 Test Prerequisits=' -PercentComplete "10"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 1/10 Test Prerequisits:' -PercentComplete "10"
 
 #region Test EWS Managed API
 
-Write-Progress -id 1 -Activity "Loading local EWS API" -Status 'Progress=' -PercentComplete "10"
+Write-Progress -id 1 -Activity "Loading local EWS API" -Status 'Progress:' -PercentComplete "10"
 
 $exchangeewsavailable = $false
 
-if (test-path "HKlM=\SOFTWARE\Microsoft\Exchange\Web Services" )
+if (test-path "HKlM:\SOFTWARE\Microsoft\Exchange\Web Services" )
 {
-    $allEWSversions = Get-ChildItem "HKlM=\SOFTWARE\Microsoft\Exchange\Web Services"
+    $allEWSversions = Get-ChildItem "HKlM:\SOFTWARE\Microsoft\Exchange\Web Services"
     $sortedEWSversions = Sort-Object -InputObject $allEWSversions -Property name -Descending
     $latestEWSversion = Select-Object -InputObject $sortedEWSversions -First 1
-    $ewspath = join-path -Path "HKlM=\SOFTWARE\Microsoft\Exchange\Web Services" -ChildPath $latestEWSversion.pschildname
+    $ewspath = join-path -Path "HKlM:\SOFTWARE\Microsoft\Exchange\Web Services" -ChildPath $latestEWSversion.pschildname
     $EWSlocation = (Get-ItemProperty $ewspath)."install directory"
     $EWSdlllocation = Join-Path -Path $EWSlocation -ChildPath "Microsoft.Exchange.WebServices.dll"
     if (test-path -path $EWSdlllocation)
@@ -1140,7 +1146,7 @@ if (test-path "HKlM=\SOFTWARE\Microsoft\Exchange\Web Services" )
     }
 }else
 {
-    throw "The EWS managed API module could not be found in registry, make sure it is installed correctly - Tested path HKlM=\SOFTWARE\M1icrosoft\Exchange\Web Services"
+    throw "The EWS managed API module could not be found in registry, make sure it is installed correctly - Tested path HKlM:\SOFTWARE\M1icrosoft\Exchange\Web Services"
     exit
 }
 
@@ -1148,7 +1154,7 @@ if (test-path "HKlM=\SOFTWARE\Microsoft\Exchange\Web Services" )
 
 #region create and test EWS connection
 
-Write-Progress -id 1 -Activity "Testing EWS connectivity" -Status 'Progress=' -PercentComplete "25"
+Write-Progress -id 1 -Activity "Testing EWS connectivity" -Status 'Progress:' -PercentComplete "25"
 
 if ($PsCmdlet.ParameterSetName -eq "Passwordfile")
 {
@@ -1162,7 +1168,7 @@ if ($PsCmdlet.ParameterSetName -eq "Passwordfile")
     $credentials = new-object -typename System.Management.Automation.PSCredential -argumentlist $dmarcmailboxusername,$dmarcmailboxpasswordsec
 }
 
-$EWSconnection = New-Object -TypeName Microsoft.Exchange.WebServices.Data.ExchangeService([Microsoft.Exchange.WebServices.Data.ExchangeVersion]==Exchange2007_SP1);
+$EWSconnection = New-Object -TypeName Microsoft.Exchange.WebServices.Data.ExchangeService([Microsoft.Exchange.WebServices.Data.ExchangeVersion]::Exchange2007_SP1);
 $EWSconnection.Credentials = New-Object -TypeName Microsoft.Exchange.WebServices.Data.WebCredentials($credentials.UserName,$credentials.GetNetworkCredential().password)
 $EWSconnection.UserAgent = "Tech-savvy dmarc parser www.tech-savvy.nl"
 
@@ -1179,7 +1185,7 @@ try
     }
 }catch
 {
-    write-error -message "connection test failed for account $dmarcmailbox with real error = $($_.exception)"
+    write-error -message "connection test failed for account $dmarcmailbox with real error : $($_.exception)"
     exit
 }finally
 {
@@ -1194,7 +1200,7 @@ try
 
 #region test 7zip location
 
-Write-Progress -id 1 -Activity "locating 7 zip" -Status 'Progress=' -PercentComplete "50"
+Write-Progress -id 1 -Activity "locating 7 zip" -Status 'Progress:' -PercentComplete "50"
 
 $7zippath = Join-Path -Path $ziplocation -ChildPath "7z.exe"
 if (test-path -path $7zippath )
@@ -1202,7 +1208,7 @@ if (test-path -path $7zippath )
     Write-Output -InputObject " 7 ZIP has been succesfully located "
 }else
 {
-    write-error -message "Error locating 7zip in the directory = $7zippath "
+    write-error -message "Error locating 7zip in the directory : $7zippath "
     exit
 }
 
@@ -1210,7 +1216,7 @@ if (test-path -path $7zippath )
 
 #region test file locations
 
-Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress=' -PercentComplete "90"
+Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress:' -PercentComplete "90"
 
 try
 {
@@ -1232,10 +1238,10 @@ try
     }
 }catch
 {
-    Write-Error -Message "Error validating and creating file storage directorys at $reportstoragedir real error= $($_.exception)"
+    Write-Error -Message "Error validating and creating file storage directorys at $reportstoragedir real error: $($_.exception)"
 }
 
-Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress=' -Completed
+Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress:' -Completed
 
 #endregion test file locations
 
@@ -1243,20 +1249,20 @@ Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress=' -C
 
 #region get all folders
 
-Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress=' -PercentComplete "50"
+Write-Progress -id 1 -Activity "test XML file directorys" -Status 'Progress:' -PercentComplete "50"
 
 #define folder id and type
-$folderproptype = new-object Microsoft.Exchange.WebServices.Data.ExtendedPropertyDefinition(13825,[Microsoft.Exchange.WebServices.Data.MapiPropertyType]==Integer)
-$folderid = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]==inbox,$dmarcmailbox)
+$folderproptype = new-object Microsoft.Exchange.WebServices.Data.ExtendedPropertyDefinition(13825,[Microsoft.Exchange.WebServices.Data.MapiPropertyType]::Integer)
+$folderid = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::inbox,$dmarcmailbox)
 
 #create folder view properties
-$folderviewproptype = new-object Microsoft.Exchange.WebServices.Data.ExtendedPropertyDefinition(26293, [Microsoft.Exchange.WebServices.Data.MapiPropertyType]==String)
-$folderviewPropSet = new-object Microsoft.Exchange.WebServices.Data.PropertySet([Microsoft.Exchange.WebServices.Data.BasePropertySet]==FirstClassProperties)
+$folderviewproptype = new-object Microsoft.Exchange.WebServices.Data.ExtendedPropertyDefinition(26293, [Microsoft.Exchange.WebServices.Data.MapiPropertyType]::String)
+$folderviewPropSet = new-object Microsoft.Exchange.WebServices.Data.PropertySet([Microsoft.Exchange.WebServices.Data.BasePropertySet]::FirstClassProperties)
 $folderviewPropSet.Add($folderviewproptype)
 
 #create folder view filter
 $FolderView =  New-Object Microsoft.Exchange.WebServices.Data.FolderView(10)
-$FolderView.Traversal = [Microsoft.Exchange.WebServices.Data.FolderTraversal]==Deep
+$FolderView.Traversal = [Microsoft.Exchange.WebServices.Data.FolderTraversal]::Deep
 $FolderView.PropertySet = $folderviewPropSet
 
 #The Search filter will exclude any Search Folders
@@ -1279,7 +1285,7 @@ try
 
 }catch
 {
-    write-error -message "Could not harvest all folders from $dmarcmailbox real error = $($_.exception)"
+    write-error -message "Could not harvest all folders from $dmarcmailbox real error : $($_.exception)"
 
 }finally
 {
@@ -1299,7 +1305,7 @@ try
     {
         $newFolder = new-object Microsoft.Exchange.WebServices.Data.Folder($ewsconnection)
         $newFolder.DisplayName = "processed"
-        $savelocation = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]==inbox,$dmarcmailbox)
+        $savelocation = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::inbox,$dmarcmailbox)
         $newFolder.Save($savelocation)
 
         $dmarcprocessedfolder = $newFolder.id
@@ -1313,7 +1319,7 @@ try
     {
         $newFoldernonrua = new-object Microsoft.Exchange.WebServices.Data.Folder($ewsconnection)
         $newFoldernonrua.DisplayName = "NodmarcRua"
-        $savelocationnonrua = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]==inbox,$dmarcmailbox)
+        $savelocationnonrua = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::inbox,$dmarcmailbox)
         $newFoldernonrua.Save($savelocationnonrua)
 
         $dmarcnonruafolder = $newFoldernonrua.id
@@ -1324,7 +1330,7 @@ try
     }
 }catch
 {
-    write-error -message "Error creating the processed folders in mailbox $dmarcmailbox real error = $($_.exception)"
+    write-error -message "Error creating the processed folders in mailbox $dmarcmailbox real error : $($_.exception)"
 
 }finally
 {
@@ -1338,11 +1344,11 @@ try
 
 #region validate custom folder
 
-if (!([string]==IsNullOrWhiteSpace($customsourcefolder)))
+if (!([string]::IsNullOrWhiteSpace($customsourcefolder)))
 {
     if ($allfolders.displayname -inotcontains $customsourcefolder )
     {
-        write-error -message "Error the custom folder $customsourcefolder is not present in the mailbox $dmarcmailbox real error = $($_.exception)"
+        write-error -message "Error the custom folder $customsourcefolder is not present in the mailbox $dmarcmailbox real error : $($_.exception)"
         exit
     }
 }
@@ -1355,28 +1361,28 @@ if (!([string]==IsNullOrWhiteSpace($customsourcefolder)))
 
 #region process items
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 2/10 process mailbox items=' -PercentComplete "20"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 2/10 process mailbox items:' -PercentComplete "20"
 
 #region harvest items
 
 #region set source folder
 
-Write-Progress -id 1 -Activity "Configure source folders" -Status 'Progress=' -PercentComplete "10"
+Write-Progress -id 1 -Activity "Configure source folders" -Status 'Progress:' -PercentComplete "10"
 
-if (!([string]==IsNullOrWhiteSpace($customsourcefolder)))
+if (!([string]::IsNullOrWhiteSpace($customsourcefolder)))
 {
     $dmarcsourcefolder = $allfolders | Where-Object -FilterScript { $_.displayname -like $customsourcefolder}
 }else
 {
-    $dmarcsourcefoldername = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]==inbox,$dmarcmailbox)
-    $dmarcsourceFolder = [Microsoft.Exchange.WebServices.Data.Folder]==Bind($EWSconnection,$dmarcsourcefoldername)
+    $dmarcsourcefoldername = new-object Microsoft.Exchange.WebServices.Data.FolderId([Microsoft.Exchange.WebServices.Data.WellKnownFolderName]::inbox,$dmarcmailbox)
+    $dmarcsourceFolder = [Microsoft.Exchange.WebServices.Data.Folder]::Bind($EWSconnection,$dmarcsourcefoldername)
 }
 
 #endregion set source folder
 
 #region get all items
 
-Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress=' -PercentComplete "20"
+Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress:' -PercentComplete "20"
 
 $items = $null
 $allitems = $null
@@ -1392,7 +1398,7 @@ try
     $dmarcsourcefolderid = $dmarcsourcefolder.id
 
     #create search filter to only get items with attachments
-    $attachmentsfilter = new-object Microsoft.Exchange.WebServices.Data.SearchFilter+IsEqualTo([Microsoft.Exchange.WebServices.Data.EmailMessageSchema]==HasAttachments, $true)
+    $attachmentsfilter = new-object Microsoft.Exchange.WebServices.Data.SearchFilter+IsEqualTo([Microsoft.Exchange.WebServices.Data.EmailMessageSchema]::HasAttachments, $true)
 
     #create Item view filter
     $itemView = New-Object Microsoft.Exchange.WebServices.Data.ItemView(20)
@@ -1406,13 +1412,13 @@ try
         $allitems += $items
         $itemView.Offset += $items.Item.Count
 
-        Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress=' -PercentComplete "50" -CurrentOperation "discoverd $($allitems.count) items"
+        Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress:' -PercentComplete "50" -CurrentOperation "discoverd $($allitems.count) items"
 
     }while($items.MoreAvailable -eq $true)
 
 }catch
 {
-    write-error -message "Could not harvest all items from folder $($dmarcsourcefolder.DisplayName) in mailbox $dmarcmailbox real error = $($_.exception)"
+    write-error -message "Could not harvest all items from folder $($dmarcsourcefolder.DisplayName) in mailbox $dmarcmailbox real error : $($_.exception)"
 }finally
 {
     if ($trace.ispresent)
@@ -1421,7 +1427,7 @@ try
     }
 }
 
-Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress=' -Completed
+Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress:' -Completed
 
 #endregion get all items
 
@@ -1429,7 +1435,7 @@ Write-Progress -id 1 -Activity "Harvest mail items" -Status 'Progress=' -Complet
 
 #region save to disk and move processed items
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 3/10 Save reports to temp storage=' -PercentComplete "30"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 3/10 Save reports to temp storage:' -PercentComplete "30"
 $progress = 1
 [array]$counter = $allitems
 
@@ -1437,7 +1443,7 @@ foreach ( $report in $allitems )
 {
     try
     {
-        Write-Progress -id 1 -Activity "Save report to disk and move mail" -Status 'Progress=' -PercentComplete ( 100/$counter.count * $progress)
+        Write-Progress -id 1 -Activity "Save report to disk and move mail" -Status 'Progress:' -PercentComplete ( 100/$counter.count * $progress)
 
         # clear interative variables
         $attachment = $null
@@ -1460,7 +1466,7 @@ foreach ( $report in $allitems )
 
                 #save the attachment to disk
                 $reportfilepath = join-path -path $reportstoragedir -ChildPath $attachment.Name.ToString()
-                $Filestream = new-object System.IO.FileStream($reportfilepath, [System.IO.FileMode]==Create)
+                $Filestream = new-object System.IO.FileStream($reportfilepath, [System.IO.FileMode]::Create)
                 $Filestream.Write($attachment.Content, 0, $attachment.Content.Length)
                 $Filestream.Close()
             }
@@ -1468,7 +1474,7 @@ foreach ( $report in $allitems )
             if ($deleteprocesseditem.ispresent)
             {
                 #delete item
-                $null = $report.delete([Microsoft.Exchange.WebServices.Data.DeleteMode]==$deletetoaction)
+                $null = $report.delete([Microsoft.Exchange.WebServices.Data.DeleteMode]::$deletetoaction)
                 Write-verbose -Message "Deleting item $($report.Subject)"
             }else
             {
@@ -1487,7 +1493,7 @@ foreach ( $report in $allitems )
         $progress++
     }catch
     {
-        write-error -message "Error processing report with message id $($report.InternetMessageId) with error = $($_.exception)"
+        write-error -message "Error processing report with message id $($report.InternetMessageId) with error : $($_.exception)"
         $progress++
     }finally
     {
@@ -1507,14 +1513,14 @@ Write-Progress -id 1 -Activity "Save report to disk and move mail" -Completed
 
 #region extract reports from compressed templocation
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 4/10 unpack reports=' -PercentComplete "40"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 4/10 unpack reports:' -PercentComplete "40"
 
 $progress = 1
 
 #Get all compressed files
 [array]$allcompressedfiles = Get-ChildItem -Path $reportstoragedir -File
 
-if ([string]==IsNullOrWhiteSpace($allcompressedfiles))
+if ([string]::IsNullOrWhiteSpace($allcompressedfiles))
 {
     Write-Warning -Message "No new compressed files to process detected"
 }else
@@ -1523,7 +1529,7 @@ if ([string]==IsNullOrWhiteSpace($allcompressedfiles))
 
     foreach ($compressedfile in $allcompressedfiles)
     {
-        Write-Progress -id 1 -Activity "decompress report files" -Status 'Progress=' -PercentComplete ( 100/$allcompressedfiles.count * $progress)
+        Write-Progress -id 1 -Activity "decompress report files" -Status 'Progress:' -PercentComplete ( 100/$allcompressedfiles.count * $progress)
         #clean iterative variables
         $compressedfilelocation = $null
         $AllArgs = $null
@@ -1558,7 +1564,7 @@ if ([string]==IsNullOrWhiteSpace($allcompressedfiles))
                 {
                     if ($zipresult.Contains("Everything is Ok"))
                     {
-                        remove-item -path $compressedfilelocation -Confirm=$false
+                        remove-item -path $compressedfilelocation -Confirm:$false
                     }else
                     {
                         Throw "something went wrong"
@@ -1598,11 +1604,11 @@ if ([string]==IsNullOrWhiteSpace($allcompressedfiles))
 
 #region analyse data
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 5/10 analysing the data=' -PercentComplete "50"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 5/10 analysing the data:' -PercentComplete "50"
 
 #region import xml files
 
-Write-Progress -id 1 -Activity "Reading report files" -Status 'Progress=' -PercentComplete 1
+Write-Progress -id 1 -Activity "Reading report files" -Status 'Progress:' -PercentComplete 1
 
 $progress = 1
 [array]$xmlfiles = Get-ChildItem -Path $reportstoragedirxml -Filter "*.xml"
@@ -1615,7 +1621,7 @@ if ($xmlfiles.count -ge 1)
 
         if (!($progress % 5))
         {
-            Write-Progress -id 1 -Activity "Reading report files" -Status 'Progress=' -PercentComplete ( 100/$xmlfiles.count * $progress)
+            Write-Progress -id 1 -Activity "Reading report files" -Status 'Progress:' -PercentComplete ( 100/$xmlfiles.count * $progress)
         }
 
         if ( $item.extension -eq ".xml")
@@ -1631,14 +1637,14 @@ if ($xmlfiles.count -ge 1)
     exit
 }
 
-Write-Progress -id 1 -Activity "Reading report files" -Status 'Progress=' -Completed
+Write-Progress -id 1 -Activity "Reading report files" -Status 'Progress:' -Completed
 
 #endregion import xml files
 
 #region restructure the data
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 6/10 Restructure the data=' -PercentComplete "60"
-Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress=' -PercentComplete 1
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 6/10 Restructure the data:' -PercentComplete "60"
+Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress:' -PercentComplete 1
 
 $progress = 1
 $recordcount = $null
@@ -1686,10 +1692,10 @@ foreach ($record in $xml)
 
     if (!($progress % 3))
     {
-        Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress=' -PercentComplete ( 100/$xml.count * $progress)
+        Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress:' -PercentComplete ( 100/$xml.count * $progress)
     }
 
-    Write-Progress -id 2 -Activity "Creating new subdatabase table" -Status 'Progress=' -PercentComplete 1
+    Write-Progress -id 2 -Activity "Creating new subdatabase table" -Status 'Progress:' -PercentComplete 1
     $progress1 = 1
 
     $recordcount = $record.feedback.record.count
@@ -1700,7 +1706,7 @@ foreach ($record in $xml)
 
     foreach ($domainrecord in $record.feedback.record)
     {
-        Write-Progress -id 2 -Activity "Creating new subdatabase table" -Status 'Progress=' -PercentComplete ( 100/$recordcount * $progress1)
+        Write-Progress -id 2 -Activity "Creating new subdatabase table" -Status 'Progress:' -PercentComplete ( 100/$recordcount * $progress1)
 
         #clear itterative variables
         $hostname = $null
@@ -1716,7 +1722,7 @@ foreach ($record in $xml)
             }else
             {
                 [array]$hostname = (Resolve-DnsName -name $domainrecord.row.source_ip -Type ptr -QuickTimeout -ErrorAction SilentlyContinue).namehost
-                if ([string]==IsNullOrEmpty($hostname))
+                if ([string]::IsNullOrEmpty($hostname))
                 {
                     [array]$hostname = "hostname is not resolved"
                 }
@@ -1765,6 +1771,7 @@ foreach ($record in $xml)
 
         }
 
+
         $mastertable += $temptable
         $progress1++
 
@@ -1772,12 +1779,12 @@ foreach ($record in $xml)
     $progress++
 }
 
-Write-Progress -id 2 -Activity "Creating new subdatabase table" -Status 'Progress=' -completed
+Write-Progress -id 2 -Activity "Creating new subdatabase table" -Status 'Progress:' -completed
 
 #remove ipdatabase
 if (test-path -path $iptabledatabasepath)
 {
-    Clear-Content -Path $iptabledatabasepath -Confirm=$false
+    Clear-Content -Path $iptabledatabasepath -Confirm:$false
     Add-Content -Path $iptabledatabasepath -Value "key,value"
 }
 
@@ -1796,11 +1803,11 @@ Try
     $mastertable | export-csv -Path $mastertablefile
 }catch
 {
-    write-error -message "Error saving the new master data table to disk location $mastertablefile with error = $($_.exception)"
+    write-error -message "Error saving the new master data table to disk location $mastertablefile with error : $($_.exception)"
     exit
 }
 
-Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress=' -Completed
+Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress:' -Completed
 
 #endregion restructure the data
 
@@ -1808,7 +1815,7 @@ Write-Progress -id 1 -Activity "Creating new database table" -Status 'Progress='
 
 #region Load all data
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 7/10 Reload all data=' -PercentComplete "70"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 7/10 Reload all data:' -PercentComplete "70"
 
 $reporttable = @()
 
@@ -1855,7 +1862,7 @@ if ($DMARCfailedonly.ispresent)
 
 #region create main report data
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 8/10 Format report data=' -PercentComplete "80"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 8/10 Format report data:' -PercentComplete "80"
 
 $reportpath = join-path -path $reportstoragedir -ChildPath "report"
 
@@ -1888,7 +1895,7 @@ $grouptotalcurrentdataperorgname = $reporttable | where-object -FilterScript {$_
 
 #region upload to powerBI
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 8.5/10 Main report Page=' -PercentComplete "90"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 8.5/10 Main report Page:' -PercentComplete "90"
 $progress = 1
 
 if ($PowerBIuploadenabled.IsPresent)
@@ -1917,7 +1924,7 @@ if ($PowerBIuploadenabled.IsPresent)
 
     foreach ( $payload in $newrecords )
     {
-        Write-Progress -id 1 -Activity "uploading to powerBI" -Status 'Progress=' -PercentComplete ( 100/$newrecords.count * $progress)
+        Write-Progress -id 1 -Activity "uploading to powerBI" -Status 'Progress:' -PercentComplete ( 100/$newrecords.count * $progress)
         Write-PowerBI -payload $payload -endpoint $endpoint
 
         #adding throttle to prevent throttling at the API side ( API accepts 5 per second )
@@ -1932,10 +1939,10 @@ if ($PowerBIuploadenabled.IsPresent)
 
 #region create mainpage report
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 9/10 Main report Page=' -PercentComplete "95"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 9/10 Main report Page:' -PercentComplete "95"
 
 $htmlbodyparts = @()
-$htmlbodyparts += "<H1>This report is generated with DMARC report script version $version from http=//www.tech-savvy.nl</H1>"
+$htmlbodyparts += "<H1>This report is generated with DMARC report script version $version from http://www.tech-savvy.nl</H1>"
 $htmlbodyparts += "<H1>Per month reports are generated for last $reportrange days</H1>"
 
 #create shortcut menu for the per month reports
@@ -2104,7 +2111,7 @@ $htmlbodyparts += '</div>'
 $htmlbodyparts += '<sourceipiframe>'
 $htmlbodyparts += '<iframe src=Index2.html height="730" width="1300"></iframe>'
 $htmlbodyparts += '</sourceipiframe>'
-$htmlbodyparts += ("<br><I>Report run on {0} by {1}<I>" -f (Get-Date -displayhint date),"http=//tech-savvy.nl")
+$htmlbodyparts += ("<br><I>Report run on {0} by {1}<I>" -f (Get-Date -displayhint date),"http://tech-savvy.nl")
 
 #convert it all to HTML file
 ConvertTo-Html -head $stylesheet -body $htmlbodyparts | Out-File -FilePath (join-path -path ($reportpath) -childpath "Index.html")
@@ -2125,7 +2132,7 @@ ConvertTo-Html -head $stylesheet -body $htmlbodyparts2 | Out-File -FilePath (joi
 
 #region create report for current month
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 10/10 monthly report page=' -PercentComplete "95"
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 10/10 monthly report page:' -PercentComplete "95"
 
 $htmlbodyparts = @()
 $htmlbodyparts += "<H1>Report generated for $date</H1><br>"
@@ -2194,7 +2201,7 @@ $htmlbodyparts += '</div>'
 $htmlbodyparts += '<sourceipiframe>'
 $htmlbodyparts += '<iframe src='+$date+'_2.html height="730" width="1300"></iframe>'
 $htmlbodyparts += '</sourceipiframe>'
-$htmlbodyparts += ("<br><I>Report run on {0} by {1}<I>" -f (Get-Date -displayhint date),"http=//tech-savvy.nl")
+$htmlbodyparts += ("<br><I>Report run on {0} by {1}<I>" -f (Get-Date -displayhint date),"http://tech-savvy.nl")
 
 ConvertTo-Html -head $stylesheet -body $htmlbodyparts | Out-File -FilePath (join-path -path ($reportpath) -childpath "$date.html")
 
@@ -2211,7 +2218,7 @@ if ($geolookupenabled.IsPresent)
 
 ConvertTo-Html -head $stylesheet -body $htmlbodyparts2 | Out-File -FilePath (join-path -path ($reportpath) -childpath "$($date)_2.html")
 
-Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 10/10 monthly report page=' -Completed
+Write-Progress -Activity "Generating DMARC Report" -Status 'Progress Phase 10/10 monthly report page:' -Completed
 
 #endregion create report for current month
 
